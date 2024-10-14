@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../common/head", {title: title, baseUrl: baseUrl})%>
+<body>
+    <nav>
+        <ul>
+            <li class="<%=page === 'index' ? 'selected-menu' : '' %>">
+                <a href="/">Kezdőlap</a>
+            </li>
+            <% if(loggedIn == -1)  { %>
+                <li class="<%=page === 'regisztracio' ? 'selected-menu' : '' %>">
+                    <a href="/regisztracio">Regisztráció</a>
+                </li>
+                <li class="<%=page === 'bejelentkezes' ? 'selected-menu' : '' %>">
+                    <a href="/bejelentkezes">Bejelentkezés</a>
+                </li>
+            <% } else if(loggedIn == 1) { %>
+                <li>
+                    <a href="/admin/profil">Profil</a>
+                </li>
+            <% }  else { %>
+                <li>
+                    <a href="/admin/profil">Profil</a>
+                </li>
+            <% } %>
+
+            <li>
+                <a href="/termekek">Termékek</a>
+            </li>
+        </ul>
+    </nav>
+
+    <%-body%>
+</body>
+</html>
